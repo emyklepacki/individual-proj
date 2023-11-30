@@ -4,6 +4,151 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto&family=Seymour+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@300&family=Roboto&family=Seymour+One&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/style1.css">
-    <title>Travel</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>2024 Study Abroad Guide</title>
+</head>
+
+<body>
+
+    <header id = "header">
+    <a href = "#" class ="logo"> </a>
+        <ul>
+            <li><a href="#" class = "active">Home</a></li>
+            <li><a href="#">Checklist</a></li>
+            <li><a href="#">Extra</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <h2 id = "text"> Study Abroad Guide<br><span>2024</span></h2>
+        <img src="main-imgs/bird1.png" id="b1">
+        <img src="main-imgs/bird2.png" id="b2">
+        <!-- <img src = "plane3.png" id="plane"> -->
+        <img src="main-imgs/forest.png" id="forest">
+        
+
+        <a href="#explore" id = "btn">Explore</a>
+
+        <img src ="main-imgs/rocks.png" id="rocks">
+        <img src ="main-imgs/water.png" id="water">
+
+    </section>
+    <div class ="sec">
+        <h2>Destinations</h2>            
+    </div>
+
+    <script>
+        let text = document.getElementById("text");
+        let bird1 = document.getElementById('b1');
+        let bird2 = document.getElementById('b2');
+        let btn = document.getElementById('btn');
+        let forest = document.getElementById('forest');
+        let water = document.getElementById('water');
+        let rocks = document.getElementById('rocks');
+        let header = document.getElementById('header');
+
+        window.addEventListener("scroll", function() {
+            let value = window.scrollY;
+
+            text.style.top = 50 + value * -0.5 + '%';
+            bird1.style.top = value * -1.5 + 'px';
+            bird1.style.left = value * 2 + 'px';
+            bird2.style.top = value * -1.5 + 'px';
+            bird2.style.left = value * -5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            rocks.style.top = value * -.12 + 'px';
+            forest.style.top = value * .25 + 'px';
+            header.style.top = value * .5 + 'px';
+
+        });
+    </script>
+    
+    
+        <!-- var images = ['travel-imgs/prague.jpeg', 'travel-imgs/amsterdam.webp', 'travel-imgs/barcelona.jpeg', 'travel-imgs/florence.webp', 'travel-imgs/london.jpeg']; -->
+        <div class="container">
+            <div id = "explore"></div>
+            <input type="radio" name="slider" id="item-1" checked>
+            <input type="radio" name="slider" id="item-2">
+            <input type="radio" name="slider" id="item-3">
+          <div class="cards">
+            <label class="card" for="item-1" id="song-1">
+              <img src="travel-imgs/prague.jpeg" alt="prague">
+            </label>
+            <label class="card" for="item-2" id="song-2">
+              <img src="travel-imgs/amsterdam.webp" alt="amsterdam">
+            </label>
+            <label class="card" for="item-3" id="song-3">
+              <img src="travel-imgs/barcelona.jpeg" alt="barcelona">
+            </label>
+            <!-- <label class="card" for="item-4" id="song-4">
+                <img src="travel-imgs/florence.webp" alt="florence">
+            </label>
+            <label class="card" for="item-4" id="song-4">
+                <img src="travel-imgs/london.jpeg" alt="london">
+            </label> -->
+          </div>
+          <div class="player">
+            <div class="upper-part">
+              <div class="play-icon">
+                <svg width="20" height="20" fill="#2992dc" stroke="#2992dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-play" viewBox="0 0 24 24">
+                  <defs/>
+                  <path d="M5 3l14 9-14 9V3z"/>
+                </svg>
+              </div>
+              <div class="info-area" id="test">
+                <label class="song-info" id="song-info-1">
+                  <div class="title">Prague</div>
+                  <div class="sub-line">
+                    <div class="subtitle">Czech Republic</div>
+                    <div class="time">4.05</div>
+                  </div>
+                </label>
+                <label class="song-info" id="song-info-2">
+                  <div class="title">Amsterdam</div>
+                  <div class="sub-line">
+                    <div class="subtitle">Netherlands</div>
+                    <div class="time">4.05</div>
+                  </div>
+                </label>
+                <label class="song-info" id="song-info-3">
+                  <div class="title">Barcelona</div>
+                  <div class="sub-line">
+                    <div class="subtitle">Spain</div>
+                    <div class="time">4.05</div>
+                  </div>
+                </label>
+                <!-- <label class="song-info" id="song-info-4">
+                    <div class="title">Florence</div>
+                    <div class="sub-line">
+                      <div class="subtitle">Italy</div>
+                      <div class="time">4.05</div>
+                    </div>
+                  </label>
+                <label class="song-info" id="song-info-5">
+                    <div class="title">London</div>
+                    <div class="sub-line">
+                      <div class="subtitle">England</div>
+                      <div class="time">4.05</div>
+                    </div>
+                  </label> -->
+              </div>
+            </div>
+            <div class="progress-bar">
+              <span class="progress"></span>
+            </div>
+          </div>
+        </div>
+
+        
+
+    
+</body>
+</html>
