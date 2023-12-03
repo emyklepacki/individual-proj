@@ -167,7 +167,7 @@ section #text span {
 /*  END OF INTRO SECZTION */
 
 
-input[type=radio] {
+.container input[type=radio] {
   display: none;
 }
 
@@ -549,6 +549,7 @@ html, body {
     height: 270px;
     width: 190px;
     position: relative;
+    /* line-height: 50px; */
   
     &:hover {
       .c {
@@ -586,8 +587,13 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top:-60px;
     /* margin-left: 50px;
     margin-right: 50px; */
+  }
+
+  .line{
+      margin-top: 0;
   }
   
   .ring {
@@ -671,16 +677,17 @@ html, body {
   .ring:before,
   .ring:after {
     content: "";
-    padding: 0.7em 0.4em;
+    padding: .7em .4em;
     position: absolute;
     left: 50%;
-    width: 145%;
-    top: 50%;
+    width: 150%;
+    top: 44%;
     display: block;
     border: 5px solid #50c9c3;
     border-radius: 50%;
     transition: transform 1s;
     transform: translateX(-50%) translateY(-50%) rotate(50deg);
+    /* margin-bottom: 40px; */
   }
   
   .ring:before {
@@ -711,9 +718,10 @@ html, body {
     bottom: 0;
     font-size: 16px;
     font-family: "Raleway";
-    padding: 20px;
+    padding: 10px;
     margin: 0;
     text-align: center;
+    /* line-height: 10px; */
   }
   
   .border {
@@ -752,9 +760,9 @@ html, body {
 
   .links div {
     position:absolute;
-    /* -ms-transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
     -webkit-transform:translate(-50%,-50%);
-    transform:translate(-50%,-50%); */
+    transform:translate(-50%,-50%);
     text-align: center;
   }
   
@@ -772,7 +780,8 @@ html, body {
     display: inline-block;
     width:160px;
     height:130px;
-    padding-top:12px;
+    padding-top:15px;
+    /* padding-left: 10px; */
     margin:0 4px;
     -o-transition:all .5s;
     -webkit-transition: all .5s;
@@ -780,6 +789,7 @@ html, body {
     transition: all .5s;
      -webkit-font-smoothing: antialiased;
      text-align: center;
+     font-size: 90px;
   }
   
   .links a:hover {
@@ -834,11 +844,11 @@ html, body {
   /* font awesome icons */
   
   /* .links a:nth-of-type(1):before {
-  content:'\f09a';
-  } */
-  /* .links a:nth-of-type(2):before {
+  content:'\fa-solid fa-plane';
+  }
+  .links a:nth-of-type(2):before {
   content:'\f099';
-  } */
+  }
   .links a:nth-of-type(4):before {
   content:'\f113';
   }
@@ -847,4 +857,358 @@ html, body {
   }
   .links a:nth-of-type(6):before {
   content:'\f1cb';
+  } */
+
+  .page3{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns:  1fr 1fr; 
+    padding: 0;
+    grid-row-gap: 20px;
+    width: auto;
   }
+
+  .cal {
+      border-radius: 20px;
+  }
+  /* checkbox */
+  .inbox {
+    max-width: 450px;
+    margin: 0 auto;
+    border-top: 5px solid #435757;
+    background-color: rgba(255, 255, 255, .2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    user-select: none;
+  }
+
+  #inbox1{
+      margin-left: 400px;
+  }
+
+  #inbox2{
+      margin-right: 350px;
+  }
+  
+  .inbox h1 {
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, .4);
+    font-size: 1.8em;
+    text-align: center;
+  }
+  
+  .inbox .items {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    counter-reset: done-items undone-items;
+  }
+  
+  .inbox h2 {
+    position: relative;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.2em;
+  }
+
+  .inbox h2::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: -20px;
+    width: 5px;
+    background-color: #435757;
+  }
+  
+  .inbox h2::after {
+    display: block;
+    float: right;
+    font-weight: normal;
+  }
+  
+  .done {
+    order: 1;
+  }
+  
+  .done::after {
+    content: ' (' counter(done-items) ')';
+  }
+  
+  .undone {
+    order: 3;
+  }
+  
+  .undone::after {
+    content: ' (' counter(undone-items) ')';
+  }
+  
+  
+  .inbox input {
+    display: block;
+    height: 53px;
+    margin: 0 0 -53px -9999px;
+    order: 4;
+    outline: none;
+    counter-increment: undone-items;
+  }
+  
+  input:checked {
+    order: 2;
+    counter-increment: done-items;  
+  }
+  
+  .inbox label {
+    display: block;
+    position: relative;
+    padding: 15px 0 15px 45px;
+    border-top: 1px dashed #fff;
+    order: 4;
+    cursor: pointer;
+    animation: undone .5s;
+  }
+  
+  .inbox label::before {
+    content: '\f10c'; 
+    display: block;
+    position: absolute;
+    top: 11px;
+    left: 10px;
+    font: 1.5em 'FontAwesome';
+  }
+  
+  .inbox label:hover, input:focus + label {
+    background-color: rgba(255, 255, 255, .2);
+  }
+  
+  .inbox input:checked + label {
+    order: 2;
+    animation: done .5s;
+  }
+  
+  .inbox input:checked + label::before {
+    content: '\f058'; /* circle checkmark */
+  }
+
+  /* checkbox2 */
+
+
+  @keyframes done {
+    0% {
+      opacity: 0;
+      background-color: rgba(255, 255, 255, .4);
+      transform: translateY(20px);
+    }
+    50% {
+      opacity: 1;
+      background-color: rgba(255, 255, 255, .4);
+    }
+  }
+
+  
+  
+  @keyframes undone {
+    0% {
+      opacity: 0;
+      background-color: rgba(255, 255, 255, .4);
+      transform: translateY(-20px);
+    }
+    50% {
+      opacity: 1;
+      background-color: rgba(255, 255, 255, .4);
+    }
+  }
+
+  /* PAGE 4 */
+
+  #p4 .place{
+      margin-left: 1em;
+      margin-top: 1em;
+    display: inline-block;
+    font-family: 'Russo One', sans-serif;  }
+
+  .page #p4 {
+    margin-left:400px;
+    }   
+
+  .place {
+    position: relative;
+    width: 220px;
+    height: 280px;
+    background: mediumturquoise;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #fff;
+    /* font-weight: 900; */
+    text-align: center;
+    line-height: 120px;
+    /* display: inline-block; */
+    /* margin-left: 200px; */
+  }
+  
+  .place::before,
+  .place::after {
+    position: absolute;
+    content: "";
+    width: 20%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #e5aa97;
+    transition: all 0.5s;
+  }
+  
+  .place::before {
+    top: 0;
+    right: 0;
+    border-radius: 0 15px 0 100%;
+  }
+  
+  .place::after {
+    bottom: 0;
+    left: 0;
+    border-radius: 0 100%  0 15px;
+  }
+  
+  .place:hover::before,
+  .place:hover:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transition: all 0.5s;
+  }
+  
+  #pl1:hover:after {
+    content: "Copenhagen, Denmark";
+    line-height: 30px;
+  }
+
+  #pl2:hover:after {
+    content: "Interlaken, Switzerland";
+    line-height: 30px;
+  }
+
+  #pl3:hover:after {
+    content: "Almafi Coast, Italy";
+    line-height: 30px;
+  }
+
+  #pl4:hover:after {
+    content: "Santorini, Greece";
+    line-height: 30px;
+  }
+
+  #pl5:hover:after {
+    content: "London, England";
+    line-height: 30px;
+  }
+
+  #pl6:hover:after {
+    content: "Lisbon, Portugal";
+    line-height: 30px;
+  }
+
+  #pl7:hover:after {
+    content: "Paris, France";
+    line-height: 30px;
+  }
+
+  #pl8:hover:after {
+    content: "Berlin, Germany";
+    line-height: 30px;
+  }
+
+  #pl9:hover:after {
+    content: "Edinburgh, Scotland";
+    line-height: 30px;
+  }
+
+  #pl10:hover:after {
+    content: "Dublin, Ireland";
+    line-height: 30px;
+  }
+
+  .places{
+      margin-left: 225px;
+      margin-right: 100px;
+  }
+
+  #pl5{
+    background-image: url('../travel-imgs/london.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  #pl1{
+    background-image: url('../travel-imgs/copenhagen.webp');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  #pl3{
+    background-image: url('../travel-imgs/almaf.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  #pl6{
+    background-image: url('../travel-imgs/lisbon.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  #pl2{
+    background-image: url('../travel-imgs/switz.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  #pl4{
+    background-image: url('../travel-imgs/greece.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  #pl7{
+    background-image: url('../travel-imgs/france.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  #pl8{
+    background-image: url('../travel-imgs/germany.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  #pl9{
+    background-image: url('../travel-imgs/edinburgh.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  #pl10{
+    background-image: url('../travel-imgs/dublin.jpeg');
+    background-repeat: no-repeat;
+    background-size: 200% 120%;
+  }
+
+  .place span {
+      background-color: white;
+      /* opacity: .8; */
+      border-radius: 20px;
+  }
+
+  /* page 2 */
+
+  
