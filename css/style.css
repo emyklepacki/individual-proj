@@ -38,6 +38,8 @@ body
     justify-content: space-between;
     align-items: center;
     z-index: 10000;
+    margin-left: -75px;
+    margin-top: -10px;
 }
 
 #header .logo{
